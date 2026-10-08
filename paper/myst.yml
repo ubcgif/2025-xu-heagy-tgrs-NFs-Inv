@@ -1,9 +1,9 @@
 # See docs at: https://mystmd.org/guide/frontmatter
 version: 1
 project:
-  # id: ubcgif-YEAR-AUTHORS-JOURNAL
-  # title: TITLE OF PAPER
-  # description: SHORT DESCRIPTION HERE
+  id: ubcgif-2025-Xu-Heagy-TGRS
+  title: Toward understanding the benefits of neural network parameterizations in geophysical inversions: a study with neural fields
+  description: A paper accepted in TEE TGRS
   authors:
     # - name: AUTHOR 1
     #   email: EMAIL
