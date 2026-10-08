@@ -1,75 +1,26 @@
-# Template repository for papers by the GIF group
+# Toward understanding the benefits of neural network parameterizations in geophysical inversions: a study with neural fields
 
-Please use this repository as a template for papers
+_Anran Xu and Lindsey J. Heagy_
 
-## Repository name
-
-The naming convention should follow 
-
-```
-year-authors-journal-short-title
-```
-
-As an example for two authors: 
-```
-2023-heagy-oldenburg-gji-casing-permeability
-```
-
-if there are more than 2 authors, you can use `etal` to indicate multiple authors, e.g. 
-```
-2024-heagy-etal-tle-future-of-applied-geophysics
-```
-
-## Contents
-
-The paper should be put in a `paper` folder. You can put the original latex there. The published pdf from the journal should also be included here. 
-
-Please also include a `thumbnail.png`. This should be a high-impact figure from the paper. 
-
-## MyST.md
-
-The key file that you will need to update is the `myst.yml` file which is located in the `paper` folder. You will need to fill out the fields that are currently commented out. 
-
-The project id should follow the pattern `ubcgif-YEAR-AUTHORS-JOURNAL`, e.g. `ubcgif-2023-heagy-oldenburg-gji` or `2024-heagy-etal-tle`
-
-Descriptions of the fields is available here: https://mystmd.org/guide/frontmatter#available-frontmatter-fields
-
-## Previewing the site
-
-You can preview the build using MyST. Please have MyST installed ([instructions](https://mystmd.org/guide/installing)). From the `paper` folder, you can then run 
-
-```
-myst start
-```
-
-and a preview will launch, usually from `http://localhost:3000`
-
-Also, whenever you create a pull-request to the repo, curvenote will build you a preview 🚀. A link will be added to the comment thread that looks something like this 
-
-![image](https://github.com/ubcgif/template-repository-paper/assets/6361812/b7a144c5-8458-474b-98c4-9e5890ac859e)
-
-
-## README 
-Please use the following as a template for the 
-```
-# Template repository for papers
-
-_Authors_
-
-[https://doi.org/XXX](https://doi.org/XXX)
+[https://doi.org/10.1109/TGRS.2025.3583970]([https://doi.org/XXX](https://doi.org/10.1109/TGRS.2025.3583970))
 
 ![thumbnail](./paper/thumbnail.png)
 
 ## Summary
 
-Summary of the paper here (pulled from abstract/summary of paper) 
+Recent research in test-time machine-learning methods has shown that some machine-learning models, without any prior learning, can improve the results of geophysical inversions. Some examples include the deep image prior inversions (DIP-Inv) and the neural fields inversions (NFs-Inv), where the inverse problems are reparametrized by the weights of the machine-learning models. In this work, we employ neural fields (NFs), which use neural networks (NNs) to map a coordinate to the corresponding physical property value at that coordinate, in a test-time learning (TTL) manner. For a TTL method, the weights are learned during the inversion, as compared to traditional approaches, which require a network to be trained using a training dataset. Results for synthetic examples in seismic tomography and direct current resistivity (DCR) inversions are shown first. We then perform a singular value decomposition (SVD) analysis on the Jacobian of the weights of the NN (SVD analysis) for both cases to explore the effects of NNs on the recovered model. The results show that the TTL approach can eliminate unwanted artifacts in the recovered subsurface physical property model caused by the sensitivity of the survey and physics. Therefore, NFs-Inv improves the inversion results compared to the conventional inversion in some cases, such as the recovery of the dip angle or the prediction of the boundaries of the main target. In the SVD analysis, we observe similar patterns in the left-singular vectors as were observed in some diffusion models, trained in a supervised/self-supervised manner, for generative tasks in computer vision. This observation provides evidence that there is an implicit bias, which is inherent in the NN structures, that is useful in supervised/self-supervised learning and TTL models. This implicit bias has the potential to be useful for recovering models in geophysical inversions.
 
 ## Citation
-
-Please include the formatted citation along with bibtex for the reference
+```
+@article{xu_heagy_2025,
+  author={Xu, Anran and Heagy, Lindsey J.},
+  journal={IEEE Transactions on Geoscience and Remote Sensing}, 
+  title={Toward Understanding the Benefits of Neural Network Parameterizations in Geophysical Inversions: A Study With Neural Fields}, 
+  year={2025},
+  volume={63},
+  number={},
+  pages={1-14},
+  keywords={Training;Inverse problems;Three-dimensional displays;Rendering (computer graphics);Image reconstruction;Geophysical measurements;Conductivity;Computational modeling;Biomedical measurement;Encoding;Deep learning (DL);deep neural networks (DNNs);direct current resistivity (DCR);geophysical inversions;implicit bias;inductive bias;neural fields (NFs);seismic tomography;test-time learning (TTL)},
+  doi={10.1109/TGRS.2025.3583970}}
 
 ```
-
-## Examples
-- https://github.com/ubcgif/2023-heagy-oldenburg-gji-casing-permeability
-- https://github.com/ubcgif/2024-heagy-etal-tle-future-of-applied-geophysics

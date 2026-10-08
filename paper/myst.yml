@@ -1,40 +1,40 @@
 # See docs at: https://mystmd.org/guide/frontmatter
 version: 1
 project:
-  # id: ubcgif-YEAR-AUTHORS-JOURNAL
-  # title: TITLE OF PAPER
-  # description: SHORT DESCRIPTION HERE
+  id: ubcgif-2025-Xu-Heagy-TGRS
+  title: Toward understanding the benefits of neural network parameterizations in geophysical inversions: a study with neural fields
+  description: A paper accepted in TEE TGRS
   authors:
-    # - name: AUTHOR 1
-    #   email: EMAIL
-    #   corresponding: true
-    #   orcid: ORCID
-    #   affiliation:
-    #     id: ubc
-    #     name: Geophysical Inversion Facility, University of British Columbia, Vancouver, British Columbia
-    # - name: Lindsey J. Heagy
-    #   email: lheagy@eoas.ubc.ca
-    #   corresponding: true
-    #   orcid: 0000-0002-1551-5926
-    #   affiliation: ubc
-  # doi: DOI
-  # arxiv: ARXIV
-  # github: GITHUB-URL
-  # date: YYYY-MM-DD # date of publication
+    - name: Anran Xu
+      email: anranxu@eoas.ubc.ca
+      corresponding: true
+      orcid: 0009-0001-9731-377X
+      affiliation:
+        id: ubc
+        name: Geophysical Inversion Facility, University of British Columbia, Vancouver, British Columbia
+    - name: Lindsey J. Heagy
+      email: lheagy@eoas.ubc.ca
+      corresponding: true
+      orcid: 0000-0002-1551-5926
+      affiliation: ubc
+  doi: 10.1109/TGRS.2025.3583970
+  arxiv: 2503.17503
+  github: https://github.com/anna1963/NFs-Inv.git
+  date: 2025-06-27 # date of publication
   # license: CC-BY-4.0  # uncomment this and the line below if open access
   # open_access: true
   venue:
-    # title: JOURNAL NAME
-    # url: JOURNAL URL
+    title: IEEE Transactions on Geoscience and Remote Sensing
+    url: https://ieeexplore.ieee.org/abstract/document/11053853
   history:
     # received: YYYY-MM-DD
     # accepted: YYYY-MM-DD
     # published: YYYY-MM-DD
   keywords:
-    # - KEYWORD 1
-    # - KEYWORD 2
-    # - KEYWORD 3
-    # - KEYWORD 4
+    - DCR inversion
+    - Test-time learning
+    - Neural fields
+    - Seismic Tomography inversion
   abbreviations:
     # CSEM: controlled source electromagnetics
     # EM: electromagnetics
@@ -45,5 +45,5 @@ site:
   template: article-theme
   actions:
     - title: pdf
-      # url: NAME-OF-PDF.pdf
+      url: Toward_Understanding_the_Benefits_of_Neural_Network_Parameterizations_in_Geophysical_Inversions_A_Study_With_Neural_Fields.pdf
       static: true
