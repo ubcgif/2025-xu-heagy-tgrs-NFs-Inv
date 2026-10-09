@@ -3,7 +3,7 @@ version: 1
 project:
   id: ubcgif-2025-Xu-Heagy-TGRS
   title: "Toward understanding the benefits of neural network parameterizations in geophysical inversions: a study with neural fields"
-  description: A paper accepted in TEE TGRS
+  description: A paper accepted in IEE TGRS
   authors:
     - name: Anran Xu
       email: anranxu@eoas.ubc.ca
