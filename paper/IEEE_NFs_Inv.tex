@@ -1,7 +1,7 @@
 \documentclass[lettersize,journal]{IEEEtran}
 \usepackage[switch]{lineno}
 \usepackage{amsmath,amsfonts}
-\usepackage{algorithmic}
+\usepackage{algpseudocode}
 \usepackage{algorithm}
 \usepackage{array}
 \usepackage{multirow}
@@ -147,27 +147,31 @@ Positional encoding was first proposed in the work of NeRF \cite{10.1145/3503250
 Let $\textbf{x} \in R^{w \times 1}$ denote a vector in the coordinate space, and the output of the encoding function is $\gamma(\textbf{x}) \in R^{h \times 1}$. The common positional encoding functions include \cite{10.1145/3503250}, \cite{9606601}, \cite{tancik2020fourierfeaturesletnetworks}, \cite{sun_coil_2021}:
 % \begin{equation}
 % $\textbf{Basic encoding}$
-\begin{flalign}
+\begin{equation}
 \label{Basic encoding}
-% & \textbf{Basic encoding} & \\
-% & \textbf{Basic encoding}\\%\quad \quad \quad \quad \quad \quad \quad 
-& \textrm{Basic encoding} & \nonumber\\
-& \gamma(\textbf{x}) = [cos(2\pi\textbf{x}), sin(2\pi\textbf{x})]^{T}.&&
-\end{flalign}
+\begin{aligned}
+& \textrm{Basic encoding} \\
+& \gamma(\textbf{x}) = [cos(2\pi\textbf{x}), sin(2\pi\textbf{x})]^{T}.
+\end{aligned}
+\end{equation}
 % \end{equation}
-\begin{flalign}
+\begin{equation}
 \label{linear encoding}
-& \textrm{Linear positional encoding} &\nonumber\\
-& \gamma(\textbf{x}) = [cos(2\pi k^{1}\textbf{x}), sin(2\pi k^{1}\textbf{x}),...,cos(2\pi k^{m}\textbf{x}), & \nonumber\\
-& \quad \quad \quad sin(2\pi k^{m}\textbf{x})]^{T},&&
-\end{flalign}
+\begin{aligned}
+& \textrm{Linear positional encoding} \\
+& \gamma(\textbf{x}) = [cos(2\pi k^{1}\textbf{x}), sin(2\pi k^{1}\textbf{x}),...,cos(2\pi k^{m}\textbf{x}), \\
+& \quad \quad \quad sin(2\pi k^{m}\textbf{x})]^{T},
+\end{aligned}
+\end{equation}
 where $k^{i} = \frac{i}{2}$.
 
-\begin{flalign}
+\begin{equation}
 \label{Gaussian encoding}
-& \textrm{Gaussian positional encoding} &\nonumber\\
-& \gamma(\textbf{x}) = [cos(2\pi B\textbf{x}), sin(2\pi B\textbf{x})], &&
-\end{flalign}
+\begin{aligned}
+& \textrm{Gaussian positional encoding} \\
+& \gamma(\textbf{x}) = [cos(2\pi B\textbf{x}), sin(2\pi B\textbf{x})],
+\end{aligned}
+\end{equation}
 where $B \in R^{\frac{h}{2} \times w }$ is sampled from a normal distribution.
 
 Some other positional encodings, such as the radial Gaussian encoding \cite{liu2022recoverycontinuous3drefractive}, are not widely used, so we do not conduct experiments on them. The choice of positional encoding functions depends on the problems.
@@ -205,23 +209,23 @@ The approach we take for solving this optimization problem is described in Algor
 \caption{NFs-Inv algorithm.}
 \label{alg:alg2}
 \begin{algorithmic}
-\STATE 
-\STATE $\textbf{Input:}\;$ 
-\STATE $\quad \beta$: the trade-off parameter for DCR inversion, 
-\STATE $\quad Z$: encoded input of dimension $R^{W \times H, h}$, 
-\STATE $\quad d^{obs}$: observed data (travel time, voltages, etc.), 
-\STATE $\quad m_{ref}$: the reference subsurface model, \STATE $\quad f$: the multilayer perceptron,
-% \STATE $\quad w^t$: the initial weights of $f$, 
-\STATE $\textbf{for}\; \textrm{t = 1}\; \textbf{to}\; \textrm{...k}\; \textbf{do}$
-\STATE $\quad\textrm{Update the trade-off parameter}\; \beta^t$
-\STATE $\quad\textrm{Predict subsurface model }\; m^t = f_{w^t} (Z)$
-\STATE $\quad\textrm{Calculate the data misfit value}\; \phi_{d}(m^t, d^{obs})$
-\STATE $\quad\textrm{Calculate the gradient w.r.t. the physical property}\; J_v = \nabla_{m^t} \phi_{d}(m^t, d^{obs})$
-\STATE $\quad\textrm{Compute}\;\mathcal{L'} =(1-\beta^t)(J_v^T m^t) + \beta^t \phi_{m}(m^t)$
-\STATE $\quad\textrm{Update}\; w_t \; \textrm{using } \mathcal{L'.}\textrm{backward() and optimizer.step()} *\;$
-\STATE $\textrm{end for}\;$
-\STATE $\textrm{Return final surface model $m^k$}\;$
-\STATE $\textrm{*See DIP-Inv \cite{27} for explanation}\;$
+\State 
+\State $\textbf{Input:}\;$ 
+\State $\quad \beta$: the trade-off parameter for DCR inversion, 
+\State $\quad Z$: encoded input of dimension $R^{W \times H, h}$, 
+\State $\quad d^{obs}$: observed data (travel time, voltages, etc.), 
+\State $\quad m_{ref}$: the reference subsurface model, \State $\quad f$: the multilayer perceptron,
+% \State $\quad w^t$: the initial weights of $f$, 
+\State $\textbf{for}\; \textrm{t = 1}\; \textbf{to}\; \textrm{...k}\; \textbf{do}$
+\State $\quad\textrm{Update the trade-off parameter}\; \beta^t$
+\State $\quad\textrm{Predict subsurface model }\; m^t = f_{w^t} (Z)$
+\State $\quad\textrm{Calculate the data misfit value}\; \phi_{d}(m^t, d^{obs})$
+\State $\quad\textrm{Calculate the gradient w.r.t. the physical property}\; J_v = \nabla_{m^t} \phi_{d}(m^t, d^{obs})$
+\State $\quad\textrm{Compute}\;\mathcal{L'} =(1-\beta^t)(J_v^T m^t) + \beta^t \phi_{m}(m^t)$
+\State $\quad\textrm{Update}\; w_t \; \textrm{using } \mathcal{L'.}\textrm{backward() and optimizer.step()} *\;$
+\State $\textrm{end for}\;$
+\State Return final surface model $m^k$
+\State *See DIP-Inv \cite{27} for explanation
 \end{algorithmic}
 \end{algorithm}
 
